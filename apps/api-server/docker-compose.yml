@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  mysql_db:
+    image: mysql
+    restart: always
+    container_name: mysql_db
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+        MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
+        MYSQL_DATABASE: '${MYSQL_DATABASE}'
+        MYSQL_USER: '${MYSQL_USER}'
+        MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+    volumes:
+      - mysql_volume:/data/mysql
+  adminer:
+    image: adminer
+    restart: always
+    container_name: adminer
+    ports:
+      - 8080:8080
+  api_server:
+    image: api_server
+    restart: always
+    container_name: api_server
+    ports:
+      - 3000:3000
+    build:
+      context: .
+    env_file:
+      - .env
+    depends_on:
+      - mysql_db
+volumes:
+  mysql_volume:
+    driver: local
