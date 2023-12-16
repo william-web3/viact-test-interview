@@ -12,6 +12,7 @@ export const darkPalette = {
   button: {
     primary: '#23b6d8',
     secondary: '#3b82f680',
+    google: '#eb5757',
   },
 };
 

@@ -1,8 +1,8 @@
-import { SignInRequest, SignInResponse, SignUpRequest, SignUpResponse, User } from '../types/api';
+import { SignInRequest, SignInResponse, SignUpRequest, SignUpResponse } from '../types/api';
 
 import axiosInstance from './axios';
 
-export async function requestSignUp(user: User): Promise<SignUpResponse> {
+export async function requestSignUp(user: SignUpRequest): Promise<SignUpResponse> {
   return (await axiosInstance.post<SignUpResponse>('/auth/signup', user)).data;
 }
 

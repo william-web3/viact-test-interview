@@ -23,6 +23,6 @@ export class User extends BaseEntity {
   @Column()
   lastName: string;
 
-  @Column()
-  yearOfBirth: number;
+  // @Column()
+  // yearOfBirth: number;
 }

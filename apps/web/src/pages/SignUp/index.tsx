@@ -1,8 +1,9 @@
 import React from 'react';
-import { Container } from '@mui/material';
+
+import SignUpPageView from './view';
 
 function SignUpPage() {
-  return <Container>Sign up page</Container>;
+  return <SignUpPageView />;
 }
 
 export default SignUpPage;

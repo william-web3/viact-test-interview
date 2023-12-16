@@ -1,8 +1,18 @@
 import React from 'react';
 import { Container } from '@mui/material';
+import { Navigate, Outlet } from 'react-router-dom';
+import { routerPaths } from '../../../routerPaths';
 
 function RootLayout() {
-  return <Container></Container>;
+  if (!localStorage.getItem('access_token')) {
+    return <Navigate to={routerPaths.Login} />;
+  }
+
+  return (
+    <Container>
+      <Outlet />
+    </Container>
+  );
 }
 
 export default RootLayout;

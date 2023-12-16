@@ -11,7 +11,7 @@ export interface User {
 
   lastName: string;
 
-  yearOfBirth: string;
+  // yearOfBirth: number;
 }
 
 export interface SignInRequest {
@@ -34,7 +34,7 @@ export interface SignUpRequest {
 
   lastName: string;
 
-  yearOfBirth: string;
+  // yearOfBirth: number;
 }
 
 export interface SignUpResponse extends User {}

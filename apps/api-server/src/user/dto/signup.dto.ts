@@ -28,7 +28,7 @@ export class SignUpDto {
   @IsString()
   lastName: string;
 
-  @ApiProperty()
-  @IsNumber()
-  yearOfBirth: number;
+  // @ApiProperty()
+  // @IsNumber()
+  // yearOfBirth: number;
 }

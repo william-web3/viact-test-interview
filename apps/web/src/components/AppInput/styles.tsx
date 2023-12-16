@@ -18,13 +18,13 @@ export const TextFieldStyled = styled(TextField)({
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: '#4B4C4C',
+      borderColor: '#0000003b',
       color: '#eb5757',
       fontSize: '12px',
     },
     '&:hover fieldset': {
-      borderColor: '#eb5757',
-      color: '#eb5757',
+      borderColor: '#4B4C4C',
+      color: '#4B4C4C',
       fontSize: '12px',
     },
     '&.Mui-focused fieldset': {

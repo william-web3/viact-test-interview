@@ -1,21 +1,20 @@
 import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { SignInRequest } from '../types/api';
+import { SignUpRequest } from '../types/api';
 import { AuthAPIs } from '../api';
 
-export const useSignInHook = () => {
+export const useSignUpHook = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const signIn = useCallback(async (params: SignInRequest, onSuccess: () => void) => {
+  const signUp = useCallback(async (params: SignUpRequest, onSuccess: () => void) => {
     setLoading(true);
     try {
-      const res = await AuthAPIs.requestSignIn(params);
-      if (res.access_token) {
-        toast.success('Login successfully');
+      const res = await AuthAPIs.requestSignUp(params);
+      if (res.id) {
+        toast.success('Sign up successfully');
         setError('');
-        localStorage.setItem('access_token', `Bearer ${res.access_token}`);
         onSuccess();
       }
     } catch (err: any) {
@@ -26,5 +25,5 @@ export const useSignInHook = () => {
     }
   }, []);
 
-  return { signIn, loading, error };
+  return { signUp, loading, error };
 };

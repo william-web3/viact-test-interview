@@ -74,7 +74,7 @@ export class UserService {
         email: true,
         firstName: true,
         lastName: true,
-        yearOfBirth: true,
+        // yearOfBirth: true,
       },
     });
   }
