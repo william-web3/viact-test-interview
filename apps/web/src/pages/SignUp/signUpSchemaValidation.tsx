@@ -17,9 +17,9 @@ const loginSchemaValidation = {
 
   email: yup.string().required('Email is required').email('Email is invalid'),
 
-  phone: yup
-    .string()
-    .required('Phone is required'),
+  // phone: yup
+  //   .string()
+  //   .required('Phone is required'),
 
   password: yup
     .string()
@@ -35,12 +35,6 @@ const loginSchemaValidation = {
     .string()
     .oneOf([yup.ref('password'), undefined], 'Confirm password must equal to password')
     .required('Confirm password is required'),
-
-  // yearOfBirth: yup
-  //   .number()
-  //   .required('Last name is required')
-  //   .min(2023 - 100, 'Invalid year of birth')
-  //   .max(2023 - 18, 'Can only sign up when you over 18'),
 };
 
 export default loginSchemaValidation;

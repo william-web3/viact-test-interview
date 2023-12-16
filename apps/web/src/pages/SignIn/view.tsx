@@ -116,7 +116,7 @@ function SignInPageView() {
                       />
                     </Grid>
                     <Grid item lg={6} xs={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-                      <StyledLink href="/forgot-password" variant="body2" color="text.secondary">
+                      <StyledLink href="/" variant="body2" color="text.secondary">
                         Forgot password?
                       </StyledLink>
                     </Grid>
