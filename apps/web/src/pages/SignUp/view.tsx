@@ -6,7 +6,16 @@ import { Formik, FormikHelpers } from 'formik';
 
 import 'react-phone-input-2/lib/style.css';
 
-import { PaperStyled, SignUpButton, LoginLogo, SignUpForm, StyledLink } from './styles';
+import {
+  SignUpPaperStyled,
+  SignUpButton,
+  LoginLogo,
+  SignUpForm,
+  StyledLink,
+  TypographyStyled,
+  TextHeader,
+  FormGridLeft,
+} from './styles';
 import { MediumText, SmallText } from '../../styles';
 import AppInput from '../../components/AppInput';
 import signUpSchemaValidation from './signUpSchemaValidation';
@@ -51,55 +60,44 @@ function SignUpPageView() {
   return (
     <Container
       component="main"
-      sx={{ height: '100vh', alignItems: 'center', justifyContent: 'center', padding: 0, display: 'flex' }}
+      sx={{ minHeight: '100vh', alignItems: 'center', justifyContent: 'center', padding: 0, display: 'flex' }}
     >
       <CssBaseline />
-      <PaperStyled>
+      <SignUpPaperStyled>
         <Grid container spacing={3}>
-          <Grid
-            item
-            lg={6}
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              borderRight: '1px solid #EBEBEB',
-            }}
-          >
-            <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-              <LoginLogo>
-                <img src="/viact-logo.svg" alt="viact-logo" loading="lazy" />
-              </LoginLogo>
-              <Box
-                sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center' }}
-              >
-                <MediumText color="text.secondary">Automate</MediumText>
-                <MediumText color="text.secondary">Construction</MediumText>
-                <MediumText color="text.secondary">Monitoring</MediumText>
+          <Grid item lg={6} className="left-form">
+            <FormGridLeft sx={{ height: '100%' }}>
+              <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                <LoginLogo>
+                  <img src="/viact-logo.svg" alt="viact-logo" loading="lazy" />
+                </LoginLogo>
+                <Box
+                  sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center' }}
+                >
+                  <TextHeader color="text.secondary">Automate</TextHeader>
+                  <TextHeader color="text.secondary">Construction</TextHeader>
+                  <TextHeader color="text.secondary">Monitoring</TextHeader>
+                </Box>
               </Box>
-            </Box>
-            <Box sx={{ textAlign: 'center', width: '100%', mt: '10px' }}>
-              <Typography component="h1" variant="h5" sx={{ textTransform: 'uppercase', fontSize: '16px' }}>
-                Create new account
-              </Typography>
-              <Typography sx={{ marginBottom: '30px', fontSize: '20px', fontWeight: '700' }} color="text.secondary">
-                Build smart risk free
-              </Typography>
-            </Box>
-            <Box sx={{ paddingLeft: '20px' }}>
-              <Typography sx={{ marginBottom: '30px', fontSize: '16px', color: '#4B4C4C' }}>
-                Understand why Viact is being used on millions of customers everyday
-              </Typography>
-              <Typography sx={{ marginBottom: '30px', fontSize: '16px', color: '#4B4C4C' }}>
-                Find out if Viact is the right fit for your business
-              </Typography>
-              <Typography sx={{ marginBottom: '30px', fontSize: '16px', color: '#4B4C4C' }}>
-                Get all your questions answered (personally)
-              </Typography>
-              <Typography sx={{ marginBottom: '30px', fontSize: '16px', color: '#4B4C4C' }}>
-                Completely risk-free with 14-day free trial and a 30-day money back guarantee!
-              </Typography>
-            </Box>
+              <Box sx={{ textAlign: 'center', width: '100%', mt: '10px' }}>
+                <Typography component="h1" variant="h5" sx={{ textTransform: 'uppercase', fontSize: '16px' }}>
+                  Create new account
+                </Typography>
+                <Typography sx={{ marginBottom: '30px', fontSize: '20px', fontWeight: '700' }} color="text.secondary">
+                  Build smart risk free
+                </Typography>
+              </Box>
+              <Box sx={{ padding: '0px 5px' }}>
+                <TypographyStyled>
+                  Understand why Viact is being used on millions of customers everyday
+                </TypographyStyled>
+                <TypographyStyled>Find out if Viact is the right fit for your business</TypographyStyled>
+                <TypographyStyled>Get all your questions answered (personally)</TypographyStyled>
+                <TypographyStyled>
+                  Completely risk-free with 14-day free trial and a 30-day money back guarantee!
+                </TypographyStyled>
+              </Box>
+            </FormGridLeft>
           </Grid>
           <Grid item lg={6}>
             <SignUpForm>
@@ -224,13 +222,13 @@ function SignUpPageView() {
                   )}
                 </Formik>
               </Box>
-              <Box sx={{ justifyContent: 'center', mt: 2, mb: 2, padding: '0 70px' }}>
+              <Box sx={{ justifyContent: 'center', mt: 2, mb: 2, padding: '0 20px' }}>
                 <SmallText sx={{ fontSize: '12px', textAlign: 'center' }}>
                   By clicking Sign up or Continue with Google, you agree to viAct’s <TermAndCondition />
                 </SmallText>
-              </Box>
-              <Box sx={{ justifyContent: 'center' }}>
-                <SmallText sx={{ fontSize: '12px' }}>
+                {/* </Box>
+              <Box sx={{ justifyContent: 'center' }}> */}
+                <SmallText sx={{ fontSize: '12px', textAlign: 'center', display: 'block', mt: '10px' }}>
                   Already have an account?{' '}
                   <StyledLink href={routerPaths.Login} variant="body2" color="text.secondary">
                     Log In
@@ -241,7 +239,7 @@ function SignUpPageView() {
           </Grid>
         </Grid>
         <SignUpSuccess open={openSignUpNotify} />
-      </PaperStyled>
+      </SignUpPaperStyled>
     </Container>
   );
 }

@@ -8,6 +8,13 @@ export const TypographyStyled = styled(Typography)`
   letter-spacing: 0.00938em;
   margin-bottom: 10px;
   color: #000000de;
+
+  ${({ theme }) => {
+    return `${[(theme as any).breakpoints.down('md')]} {
+      font-size: 12px;
+      margin-bottom: 5px;
+      `;
+  }})
 `;
 
 export const ButtonStyled = styled(Button)`

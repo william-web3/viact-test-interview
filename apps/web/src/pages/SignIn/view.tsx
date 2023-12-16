@@ -53,7 +53,7 @@ function SignInPageView() {
       <CssBaseline />
       <PaperStyled sx={{ width: '520px' }}>
         <SignInForm>
-          <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
             <LoginLogo sx={{ padding: '0px !important' }}>
               <img src="/viact-logo.svg" alt="viact-logo" loading="lazy" />
             </LoginLogo>
