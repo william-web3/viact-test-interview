@@ -1,7 +1,11 @@
 export interface JWTPayload {
-  sub: number;
+  id: number;
 
   username: string;
+
+  iat?: number;
+
+  exp?: number;
 }
 
 export interface AppRequest extends Request {

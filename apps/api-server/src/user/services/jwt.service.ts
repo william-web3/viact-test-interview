@@ -13,7 +13,7 @@ export class AppJwtService {
   ) {}
 
   async generateJWT(user: User) {
-    const payload: JWTPayload = { sub: user.id, username: user.username };
+    const payload: JWTPayload = { id: user.id, username: user.username };
     const access_token = await this.jwtService.signAsync(payload, {
       secret: await this.configService.get('JWT_SECRET'),
     });
