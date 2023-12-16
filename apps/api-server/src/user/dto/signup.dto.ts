@@ -17,6 +17,10 @@ export class SignUpDto {
 
   @ApiProperty()
   @IsString()
+  phone: string;
+
+  @ApiProperty()
+  @IsString()
   @Matches(passwordRegex, { message: 'Password is not valid' })
   password: string;
 

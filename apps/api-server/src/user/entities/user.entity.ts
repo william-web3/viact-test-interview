@@ -11,6 +11,10 @@ export class User extends BaseEntity {
   @Column()
   email: string;
 
+  @Unique(['phone'])
+  @Column()
+  phone: string;
+
   @Column()
   password: string;
 
