@@ -3,7 +3,6 @@
 ###################
 
 FROM node:18 As builder
-RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 
 WORKDIR /app
 
@@ -21,7 +20,7 @@ RUN yarn build
 # PRODUCTION
 ###################
 
-FROM nginx:1.19.0 As production
+FROM nginx:stable As production
 
 WORKDIR /usr/share/nginx/html
 

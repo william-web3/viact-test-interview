@@ -2,6 +2,12 @@ import axios, { AxiosError, AxiosResponse } from 'axios';
 import { isArray, get } from 'lodash';
 
 import { APIError } from '../types/api';
+
+const baseURL =
+  process.env.NODE_ENV === 'production'
+    ? process.env.REACT_APP_API_GATEWAY_PROD
+    : process.env.REACT_APP_API_GATEWAY_DEV;
+
 const onRejected = (error: AxiosError): Promise<APIError> => {
   const handled: any = get(error, 'response.data', {
     statusCode: 500,
@@ -18,10 +24,7 @@ const onRejected = (error: AxiosError): Promise<APIError> => {
 };
 
 const instance = axios.create({
-  baseURL:
-    process.env.NODE_ENV === 'production'
-      ? process.env.REACT_APP_API_GATEWAY_PROD
-      : process.env.REACT_APP_API_GATEWAY_DEV,
+  baseURL,
   headers: {
     Authorization: '',
     'Content-Type': 'application/json',
