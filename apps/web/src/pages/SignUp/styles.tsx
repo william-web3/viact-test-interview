@@ -6,8 +6,14 @@ export const ContainerStyled = styled(Container)`
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: 30px;
   display: flex;
+
+  ${({ theme }) => {
+    return `${[(theme as any).breakpoints.down('md')]} {
+    padding: 20px;
+  `;
+  }})
 `;
 
 export const SignUpPaperStyled = styled(Paper)`
@@ -21,7 +27,7 @@ export const SignUpPaperStyled = styled(Paper)`
   ${({ theme }) => {
     return `${[(theme as any).breakpoints.down('md')]} {
     width: 100%;
-    margin: 20px;
+    // margin: 20px;
     padding: 20px;
   `;
   }})

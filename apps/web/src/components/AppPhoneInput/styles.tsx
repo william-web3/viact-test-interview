@@ -86,8 +86,9 @@ export const DialogCountry = styled(Dialog)`
 `;
 
 export const FormControlStyled = styled(FormControl)`
-
-
+  .country-list .country {
+    padding: 14px 10px;
+  }
 
   .app-input-phone-search {
     z-index: 3;

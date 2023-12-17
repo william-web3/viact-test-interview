@@ -213,7 +213,7 @@ function SignUpPageView() {
                             control={
                               <Checkbox
                                 value="show-pass"
-                                color="primary"
+                                sx={{ color: '#EB5757 !important' }}
                                 onChange={(e, checked) => setShowPass(checked)}
                               />
                             }
@@ -241,7 +241,7 @@ function SignUpPageView() {
                   )}
                 </Formik>
               </Box>
-              <Box sx={{ justifyContent: 'center', mt: 2, mb: 2, padding: '0 20px' }}>
+              <Box sx={{ justifyContent: 'center', mt: 2, mb: 2, padding: '0 30px' }}>
                 <SmallText sx={{ fontSize: '12px', textAlign: 'center' }}>
                   By clicking Sign up or Continue with Google, you agree to viAct’s <TermAndCondition />
                 </SmallText>

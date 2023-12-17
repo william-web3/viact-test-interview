@@ -3,7 +3,7 @@ import { Box, CardContent, Container } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 
 export const ContainerStyled = styled(Container)`
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
   padding: 10px;

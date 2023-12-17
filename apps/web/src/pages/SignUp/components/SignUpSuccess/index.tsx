@@ -7,12 +7,13 @@ import { isUndefined } from 'lodash';
 
 interface Props {
   open?: boolean;
+  onClose?: () => void;
 }
 
 function SignUpSuccess(props: Props) {
   const theme = useTheme();
   return (
-    <Dialog open={isUndefined(props.open) ? false : props.open} PaperProps={{ sx: { borderRadius: '20px' } }}>
+    <Dialog open={isUndefined(props.open) ? false : props.open} PaperProps={{ sx: { borderRadius: '20px' } }} onClose={props.onClose}>
       <CardContent sx={{ textAlign: 'center' }}>
         <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', padding: '20px' }}>
           <LoginLogo>

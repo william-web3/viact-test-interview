@@ -22,7 +22,7 @@ function TermAndCondition() {
       <StyledLink variant="body2" color="text.secondary" onClick={handleClickOpen}>
         Terms and Conditions for Free Trial.
       </StyledLink>
-      <Dialog open={open} maxWidth="md">
+      <Dialog open={open} maxWidth="md" onClose={handleClose}>
         <CardContent>
           <DialogTitle id="alert-dialog-title" sx={{ pb: '0px', fontsize: '22px' }}>
             viAct’s Terms and Conditions for Free Trial

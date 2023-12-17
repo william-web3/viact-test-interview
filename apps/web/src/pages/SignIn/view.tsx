@@ -96,7 +96,11 @@ function SignInPageView() {
                     <Grid item lg={6} xs={6}>
                       <FormControlLabel
                         control={
-                          <Checkbox value="show-pass" color="primary" onChange={(e, checked) => setShowPass(checked)} />
+                          <Checkbox
+                            value="show-pass"
+                            sx={{ color: '#EB5757 !important' }}
+                            onChange={(e, checked) => setShowPass(checked)}
+                          />
                         }
                         label={
                           <Typography component="span" sx={{ fontSize: '13px' }}>
