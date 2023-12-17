@@ -63,12 +63,12 @@ export class UserService {
       throw new InternalServerErrorException('Email already exists');
     }
 
-    const userByPhone = await this.userRepo.findOneBy({
-      phone: params.phone,
-    });
-    if (userByPhone) {
-      throw new InternalServerErrorException('Phone already exists');
-    }
+    // const userByPhone = await this.userRepo.findOneBy({
+    //   phone: params.phone,
+    // });
+    // if (userByPhone) {
+    //   throw new InternalServerErrorException('Phone already exists');
+    // }
 
     const { hashedPassword, salt } = utils.passwordHashing(params.password);
 

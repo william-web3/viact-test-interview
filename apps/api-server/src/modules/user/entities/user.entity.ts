@@ -12,7 +12,7 @@ export class User extends BaseEntity {
   @Column()
   email: string;
 
-  @Unique(['phone'])
+  // @Unique(['phone'])
   @Column()
   phone: string;
 
