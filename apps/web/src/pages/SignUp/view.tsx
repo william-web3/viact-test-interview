@@ -111,7 +111,7 @@ function SignUpPageView() {
                   onSubmit={onSignUp}
                   validationSchema={yup.object().shape(signUpSchemaValidation)}
                 >
-                  {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
+                  {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values , isValid, dirty }) => (
                     <form onSubmit={handleSubmit} noValidate autoComplete="off" style={{ padding: '20px 0px' }}>
                       <AppInput
                         required
@@ -219,7 +219,7 @@ function SignUpPageView() {
                         </Grid>
                       </Grid>
                       <Box sx={{ mt: '20px' }}>
-                        <SignUpButton type="submit" fullWidth variant="contained" loading={isSubmitting}>
+                        <SignUpButton type="submit" fullWidth variant="contained" loading={isSubmitting} disabled={!dirty || !isValid}>
                           Sign up
                         </SignUpButton>
                       </Box>
