@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Box, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Typography } from '@mui/material';
+import { Box, Checkbox, CssBaseline, FormControlLabel, Grid, Typography } from '@mui/material';
 
 import * as yup from 'yup';
-import { Formik, FormikHelpers } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
+import { useNavigate } from 'react-router-dom';
 
 import 'react-phone-input-2/lib/style.css';
 
@@ -15,6 +16,7 @@ import {
   TypographyStyled,
   TextHeader,
   FormGridLeft,
+  ContainerStyled,
 } from './styles';
 import { SmallText } from '../../styles';
 import AppInput from '../../components/AppInput';
@@ -24,7 +26,6 @@ import { routerPaths } from '../../routerPaths';
 import AppPhoneInput from '../../components/AppPhoneInput';
 import TermAndCondition from './components/TermAndCondition';
 import SignUpSuccess from './components/SignUpSuccess';
-import { useNavigate } from 'react-router-dom';
 
 interface LoginFormValues {
   username: string;
@@ -61,10 +62,7 @@ function SignUpPageView() {
   const navigate = useNavigate();
 
   return (
-    <Container
-      component="main"
-      sx={{ minHeight: '100vh', alignItems: 'center', justifyContent: 'center', padding: 0, display: 'flex' }}
-    >
+    <ContainerStyled>
       <CssBaseline />
       <SignUpPaperStyled>
         <Grid container spacing={3}>
@@ -105,14 +103,15 @@ function SignUpPageView() {
           <Grid item xs={12} lg={6}>
             <SignUpForm>
               <Box sx={{ width: '100%', paddingBottom: '0' }}>
-                {/* {apiError && <AppAlert text={apiError} alertProps={{ severity: 'error', icon: false }} />} */}
                 <Formik
                   initialValues={initialValues}
                   onSubmit={onSignUp}
                   validationSchema={yup.object().shape(signUpSchemaValidation)}
+                  validateOnBlur
+                  validateOnChange
                 >
-                  {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values , isValid, dirty }) => (
-                    <form onSubmit={handleSubmit} noValidate autoComplete="off" style={{ padding: '20px 0px' }}>
+                  {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, isValid, dirty }) => (
+                    <Form onSubmit={handleSubmit} autoComplete="off" style={{ padding: '20px 0px' }}>
                       <AppInput
                         required
                         margin="normal"
@@ -123,6 +122,7 @@ function SignUpPageView() {
                         color="primary"
                         sx={{ marginBottom: '20px !important' }}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                         helperText={errors.firstName && touched.firstName ? errors.firstName : ''}
                       />
                       <AppInput
@@ -135,6 +135,7 @@ function SignUpPageView() {
                         color="primary"
                         sx={{ marginBottom: '20px !important' }}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                         helperText={errors.lastName && touched.lastName ? errors.lastName : ''}
                       />
                       <AppInput
@@ -147,6 +148,7 @@ function SignUpPageView() {
                         color="primary"
                         sx={{ marginBottom: '20px !important' }}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                         helperText={errors.username && touched.username ? errors.username : ''}
                       />
                       <AppInput
@@ -159,6 +161,7 @@ function SignUpPageView() {
                         color="primary"
                         sx={{ marginBottom: '20px !important' }}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                         helperText={errors.email && touched.email ? errors.email : ''}
                       />
                       <AppPhoneInput
@@ -171,11 +174,12 @@ function SignUpPageView() {
                         color="primary"
                         sx={{ marginBottom: '20px !important' }}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                         helperText={errors.phone && touched.phone ? errors.phone : ''}
                       />
                       <AppInput
                         required
-                        autoComplete='off'
+                        autoComplete="off"
                         margin="normal"
                         fullWidth
                         name="password"
@@ -184,11 +188,13 @@ function SignUpPageView() {
                         id="password"
                         sx={{ marginBottom: '20px !important' }}
                         onChange={handleChange}
-                        helperText={errors.password && touched.password ? errors.password : ''}
+                        onBlur={handleBlur}
+                        error={touched.password && Boolean(errors.password)}
+                        helperText={touched.password && errors.password}
                       />
                       <AppInput
                         required
-                        autoComplete='off'
+                        autoComplete="off"
                         margin="normal"
                         fullWidth
                         name="confirmPassword"
@@ -197,7 +203,9 @@ function SignUpPageView() {
                         id="confirmPassword"
                         sx={{ marginBottom: '20px !important' }}
                         onChange={handleChange}
-                        helperText={errors.confirmPassword && touched.confirmPassword ? errors.confirmPassword : ''}
+                        onBlur={handleBlur}
+                        error={touched.confirmPassword && Boolean(errors.confirmPassword)}
+                        helperText={touched.confirmPassword && errors.confirmPassword}
                       />
                       <Grid container>
                         <Grid item lg={6} xs={6}>
@@ -219,11 +227,17 @@ function SignUpPageView() {
                         </Grid>
                       </Grid>
                       <Box sx={{ mt: '20px' }}>
-                        <SignUpButton type="submit" fullWidth variant="contained" loading={isSubmitting} disabled={!dirty || !isValid}>
+                        <SignUpButton
+                          type="submit"
+                          fullWidth
+                          variant="contained"
+                          loading={isSubmitting}
+                          disabled={!dirty || !isValid}
+                        >
                           Sign up
                         </SignUpButton>
                       </Box>
-                    </form>
+                    </Form>
                   )}
                 </Formik>
               </Box>
@@ -250,7 +264,7 @@ function SignUpPageView() {
         </Grid>
         <SignUpSuccess open={openSignUpNotify} />
       </SignUpPaperStyled>
-    </Container>
+    </ContainerStyled>
   );
 }
 

@@ -1,6 +1,14 @@
 import styled from '@emotion/styled';
-import { Box, CardContent } from '@mui/material';
+import { Box, CardContent, Container } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+
+export const ContainerStyled = styled(Container)`
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  display: flex;
+`;
 
 export const SignInForm = styled(CardContent)`
   display: flex;

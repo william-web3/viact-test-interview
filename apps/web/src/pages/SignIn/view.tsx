@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Typography } from '@mui/material';
+import { Box, Checkbox, CssBaseline, FormControlLabel, Grid, Typography } from '@mui/material';
 
 import * as yup from 'yup';
 import { Formik, FormikHelpers } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
-import { LoginButton, LoginLogo, SignInForm } from './styles';
+import { ContainerStyled, LoginButton, LoginLogo, SignInForm } from './styles';
 import { PaperStyled, StyledLink, TypographyStyled, BoxStyled, SmallText } from '../../styles';
 
 import AppInput from '../../components/AppInput';
@@ -40,16 +40,7 @@ function SignInPageView() {
   };
 
   return (
-    <Container
-      component="main"
-      sx={{
-        height: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '10px',
-        display: 'flex',
-      }}
-    >
+    <ContainerStyled>
       <CssBaseline />
       <PaperStyled sx={{ width: '520px' }}>
         <SignInForm>
@@ -148,7 +139,7 @@ function SignInPageView() {
           </BoxStyled>
         </SignInForm>
       </PaperStyled>
-    </Container>
+    </ContainerStyled>
   );
 }
 
