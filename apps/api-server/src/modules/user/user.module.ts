@@ -4,12 +4,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { UserService } from './services/user.service';
 import { AuthController } from './controllers/auth.controller';
-import { DatabaseModule } from '../database/database.module';
+import { DatabaseModule } from '../../database/database.module';
 import { User } from './entities';
 import { ConfigModule } from '@nestjs/config';
 import { AppJwtService } from './services/jwt.service';
 import { UserController } from './controllers';
-import { JwtStrategy } from '../guards/jwt.strategy';
+import { JwtStrategy } from '../../guards/jwt.strategy';
 
 @Module({
   imports: [

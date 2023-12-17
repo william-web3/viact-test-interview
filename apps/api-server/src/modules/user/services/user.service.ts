@@ -6,11 +6,12 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 // import { JwtService } from '@nestjs/jwt';
 
-import { SignInDto, SignUpDto } from 'src/user/dto';
-import * as utils from '../../utils';
-import { User } from 'src/user/entities';
+import { SignInDto, SignUpDto } from 'src/modules/user/dto';
+import * as utils from '../../../utils';
+import { User } from 'src/modules/user/entities';
 import { Repository } from 'typeorm';
 import { AppJwtService } from './jwt.service';
+import { UserStatus } from '../types';
 
 @Injectable()
 export class UserService {
@@ -26,6 +27,12 @@ export class UserService {
     ]);
     if (!user) {
       throw new UnauthorizedException('Username or password is incorrect!');
+    }
+    if (user.status === UserStatus.UNVERIFY) {
+      throw new UnauthorizedException('Please verify your account!');
+    }
+    if (user.status === UserStatus.INACTIVE) {
+      throw new UnauthorizedException('This user is inactive!');
     }
     const isValid = utils.comparePassword(
       user.password,

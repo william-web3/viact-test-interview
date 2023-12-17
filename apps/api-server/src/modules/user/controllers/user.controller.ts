@@ -1,6 +1,6 @@
 import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import { UserService } from '../services';
-import { JwtAuthGuard } from '../../guards/jwt.guard';
+import { JwtAuthGuard } from '../../../guards/jwt.guard';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { User } from '../entities';
 import { RequestUser } from 'src/decorators';

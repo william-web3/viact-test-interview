@@ -4,8 +4,8 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 
 import { ConfigService } from '@nestjs/config';
 import { JWT_SECRET_ENV_KEY } from 'src/utils/constants';
-import { UserService } from 'src/user/services';
-import { JWTPayload } from 'src/user/types';
+import { UserService } from 'src/modules/user/services';
+import { JWTPayload } from 'src/modules/user/types';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {

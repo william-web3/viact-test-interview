@@ -1,7 +1,7 @@
 import { Transform } from 'class-transformer';
 import { IsString, Matches } from 'class-validator';
 
-import { passwordRegex } from '../../utils/constants';
+import { passwordRegex } from '../../../utils/constants';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class SignInDto {

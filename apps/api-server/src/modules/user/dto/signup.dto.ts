@@ -1,6 +1,6 @@
 import { Transform } from 'class-transformer';
 import { IsEmail, IsNumber, IsString, Matches } from 'class-validator';
-import { passwordRegex, usernameRegex } from '../../utils/constants';
+import { passwordRegex, usernameRegex } from '../../../utils/constants';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class SignUpDto {

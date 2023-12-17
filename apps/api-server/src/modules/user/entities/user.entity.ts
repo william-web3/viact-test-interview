@@ -1,5 +1,6 @@
 import { Column, Entity, Unique } from 'typeorm';
 import { BaseEntity } from './base.entity';
+import { UserStatus } from '../types';
 
 @Entity({ name: 'users' })
 export class User extends BaseEntity {
@@ -29,4 +30,11 @@ export class User extends BaseEntity {
 
   // @Column()
   // yearOfBirth: number;
+
+  @Column({
+    type: 'enum',
+    enum: UserStatus,
+    default: UserStatus.ACTIVE,
+  })
+  status: UserStatus;
 }
