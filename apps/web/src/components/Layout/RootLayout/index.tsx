@@ -2,9 +2,10 @@ import React from 'react';
 import { Container } from '@mui/material';
 import { Navigate, Outlet } from 'react-router-dom';
 import { routerPaths } from '../../../routerPaths';
+import { ACCESS_TOKEN } from '../../../utils/constants';
 
 function RootLayout() {
-  if (!localStorage.getItem('access_token')) {
+  if (!localStorage.getItem(ACCESS_TOKEN)) {
     return <Navigate to={routerPaths.Login} />;
   }
 

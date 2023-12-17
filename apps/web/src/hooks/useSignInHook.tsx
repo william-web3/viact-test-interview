@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 
 import { SignInRequest } from '../types/api';
 import { AuthAPIs } from '../api';
+import { ACCESS_TOKEN } from '../utils/constants';
 
 export const useSignInHook = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +16,7 @@ export const useSignInHook = () => {
       if (res.access_token) {
         toast.success('Login successfully');
         setError('');
-        localStorage.setItem('access_token', `Bearer ${res.access_token}`);
+        localStorage.setItem(ACCESS_TOKEN, `Bearer ${res.access_token}`);
         onSuccess();
       }
     } catch (err: any) {

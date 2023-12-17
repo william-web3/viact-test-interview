@@ -2,11 +2,12 @@ import { Button, Container, Typography } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { routerPaths } from '../../routerPaths';
+import { ACCESS_TOKEN } from '../../utils/constants';
 
 function Dashboard() {
   const navigate = useNavigate();
   const onSignOut = () => {
-    localStorage.removeItem('access_token');
+    localStorage.removeItem(ACCESS_TOKEN);
     setTimeout(() => {
       navigate(routerPaths.Login);
     }, 200);

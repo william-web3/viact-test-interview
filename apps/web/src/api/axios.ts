@@ -2,6 +2,7 @@ import axios, { AxiosError, AxiosResponse } from 'axios';
 import { isArray, get } from 'lodash';
 
 import { APIError } from '../types/api';
+import { ACCESS_TOKEN } from '../utils/constants';
 
 const onRejected = (error: AxiosError): Promise<APIError> => {
   const handled: any = get(error, 'response.data', {
@@ -21,7 +22,7 @@ const onRejected = (error: AxiosError): Promise<APIError> => {
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL || 'http://localhost:3000/api/v2',
   headers: {
-    Authorization: '',
+    Authorization: localStorage.getItem(ACCESS_TOKEN),
     'Content-Type': 'application/json',
     timeout: 30000,
   },
