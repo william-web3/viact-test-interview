@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Box, CardContent, Grid, Link, Paper, Typography } from '@mui/material';
+import { Box, CardContent, Link, Paper, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 
 export const SignUpPaperStyled = styled(Paper)`
@@ -41,8 +41,8 @@ export const FormGridLeft = styled(Box)`
   ${({ theme }) => {
     return `${[(theme as any).breakpoints.down('md')]} {
     width: 100%;
-    margin: 20px;
-    padding: 20px;
+    // margin: 20px;
+    padding: 10px;
     border-right: 0px!important;
     `;
   }})

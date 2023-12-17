@@ -116,7 +116,7 @@ function SignInPageView() {
                       />
                     </Grid>
                     <Grid item lg={6} xs={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-                      <StyledLink href="/" variant="body2" color="text.secondary">
+                      <StyledLink href="#" variant="body2" color="text.secondary">
                         Forgot password?
                       </StyledLink>
                     </Grid>
@@ -132,10 +132,10 @@ function SignInPageView() {
                     <SmallText sx={{ fontSize: '13px !important' }}>
                       Not on Viact yet?{' '}
                       <StyledLink
-                        href={routerPaths.Signup}
                         variant="body2"
                         color="text.secondary"
-                        sx={{ fontSize: '16px !important' }}
+                        sx={{ fontSize: '16px !important', cursor: 'pointer' }}
+                        onClick={() => navigate(routerPaths.Signup)}
                       >
                         Signup
                       </StyledLink>{' '}

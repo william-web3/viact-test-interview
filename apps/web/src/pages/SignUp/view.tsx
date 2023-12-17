@@ -16,7 +16,7 @@ import {
   TextHeader,
   FormGridLeft,
 } from './styles';
-import { MediumText, SmallText } from '../../styles';
+import { SmallText } from '../../styles';
 import AppInput from '../../components/AppInput';
 import signUpSchemaValidation from './signUpSchemaValidation';
 import { useSignUpHook } from '../../hooks';
@@ -24,6 +24,7 @@ import { routerPaths } from '../../routerPaths';
 import AppPhoneInput from '../../components/AppPhoneInput';
 import TermAndCondition from './components/TermAndCondition';
 import SignUpSuccess from './components/SignUpSuccess';
+import { useNavigate } from 'react-router-dom';
 
 interface LoginFormValues {
   username: string;
@@ -57,6 +58,8 @@ function SignUpPageView() {
     });
   };
 
+  const navigate = useNavigate();
+
   return (
     <Container
       component="main"
@@ -65,7 +68,7 @@ function SignUpPageView() {
       <CssBaseline />
       <SignUpPaperStyled>
         <Grid container spacing={3}>
-          <Grid item lg={6} className="left-form">
+          <Grid item xs={12} lg={6} className="left-form">
             <FormGridLeft sx={{ height: '100%' }}>
               <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                 <LoginLogo>
@@ -99,7 +102,7 @@ function SignUpPageView() {
               </Box>
             </FormGridLeft>
           </Grid>
-          <Grid item lg={6}>
+          <Grid item xs={12} lg={6}>
             <SignUpForm>
               <Box sx={{ width: '100%', paddingBottom: '0' }}>
                 {/* {apiError && <AppAlert text={apiError} alertProps={{ severity: 'error', icon: false }} />} */}
@@ -172,6 +175,7 @@ function SignUpPageView() {
                       />
                       <AppInput
                         required
+                        autoComplete='off'
                         margin="normal"
                         fullWidth
                         name="password"
@@ -184,6 +188,7 @@ function SignUpPageView() {
                       />
                       <AppInput
                         required
+                        autoComplete='off'
                         margin="normal"
                         fullWidth
                         name="confirmPassword"
@@ -230,7 +235,12 @@ function SignUpPageView() {
               <Box sx={{ justifyContent: 'center' }}> */}
                 <SmallText sx={{ fontSize: '12px', textAlign: 'center', display: 'block', mt: '10px' }}>
                   Already have an account?{' '}
-                  <StyledLink href={routerPaths.Login} variant="body2" color="text.secondary">
+                  <StyledLink
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ cursor: 'pointer' }}
+                    onClick={() => navigate(routerPaths.Login)}
+                  >
                     Log In
                   </StyledLink>
                 </SmallText>
