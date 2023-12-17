@@ -15,7 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           password: configService.get('MYSQL_PASSWORD', 'viact'),
           database: configService.get('MYSQL_DATABASE', 'viact'),
           entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-          synchronize: true,
+          synchronize: false,
         };
       },
       inject: [ConfigService],
