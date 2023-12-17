@@ -1,11 +1,11 @@
 ## 📓 Pre-Requisites
 
-List all the pre-requisites the system needs to develop this project.
+List all the prerequisites the system needs to develop this project.
 
-1. A Linux host
+1. A Linux host (If deployed production mode)
 2. Docker: 24.0.6+
 3. Docker Compose: 2.23.0+
-4. The deployment machine have access to the Internet, so the hosts can communicate with each other;
+4. The deployment machine has access to the Internet, so the hosts can communicate with each other;
 5. Network connection to Internet to pull container images from Docker Hub.
 
 ## 🔩 Development Environment
@@ -23,11 +23,13 @@ List all the pre-requisites the system needs to develop this project.
 - Go to apps/api-server and run this command
 ```bash
 $ docker compose up -f
+```
 
 2. Frontend
 - Go to apps/web and run this command
 ```bash
 $ docker compose up -f
+```
 
 
-3. In case you want to run both server and frontend in a same server and do not care about docker networks
+3. If you want to run both server and frontend in the same server, you can use **both.docker-compose.yml** file to deploy.
