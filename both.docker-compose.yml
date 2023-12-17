@@ -36,7 +36,7 @@ services:
     restart: always
     container_name: web
     ports:
-      - 8081:80
+      - 80:80
     build:
       context: apps/web/
     env_file:
